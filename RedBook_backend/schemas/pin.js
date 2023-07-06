@@ -21,11 +21,11 @@ export default {
         {
             name: 'category',
             type: 'string',
-            title: 'Title'
+            title: 'Category'
         },
         {
             name: 'image',
-            type: 'string',
+            type: 'image',
             title: 'Image',
             options:
                 { hotspot: true }
@@ -44,15 +44,15 @@ export default {
             name: 'save',
             title: 'Save',
             type: 'array',
-            of:[{type:'save'}]
-            
+            of: [{ type: 'save' }]
+
         },
         {
             name: 'comments',
             title: 'Comments',
             type: 'array',
-            of:[{type:'comment'}]
-            
+            of: [{ type: 'comment' }]
+
         },
 
     ]

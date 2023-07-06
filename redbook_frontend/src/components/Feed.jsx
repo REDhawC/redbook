@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { client } from '../client'
 import MasonryLayout from './MasonryLayout'
 import Spin from './Spin'
-import { searchQuery } from '../utils/data'
+import { feedQuery, searchQuery } from '../utils/data'
 
 const Feed = () => {
 
@@ -12,9 +12,11 @@ const Feed = () => {
     const { categoryId } = useParams()
     const [pins, setPins] = useState(null);
 
-    useEffect((categoryId) => {
+
+    useEffect(() => {
         setLoading(true)
         if (categoryId) {
+            console.log(categoryId);
             const query = searchQuery(categoryId)
 
             client.fetch(query)
@@ -24,7 +26,11 @@ const Feed = () => {
                 })
         }
         else {
-
+            client.fetch(feedQuery)
+                .then((data) => {
+                    setPins(data)
+                    setLoading(false)
+                })
         }
 
     }, [categoryId]);
@@ -33,7 +39,7 @@ const Feed = () => {
 
     return (
         <div>
-            Feed
+            {pins && <MasonryLayout pins={pins} />}
         </div>
     )
 }
