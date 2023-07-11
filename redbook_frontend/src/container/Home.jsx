@@ -8,14 +8,16 @@ import Pins from './Pins'
 import { client } from '../client'
 import { userQuery } from '../utils/data'
 import logo from '../assets/logo.png'
+import { fetchUser } from '../utils/fetchUser'
+
+
 
 const Home = () => {
 
     const [ToggleSidebar, setToggleSidebar] = useState(false);
     const [user, setUser] = useState(null);
     const scrollRef = useRef(null)
-
-    const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear()
+    const userInfo = fetchUser()
 
     useEffect(() => {
         const query = userQuery(userInfo?._id)
@@ -27,6 +29,7 @@ const Home = () => {
     useEffect(() => {
         scrollRef.current.scrollTo(0, 0)
     }, []);
+
 
     return (
         <div className='flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out'>
@@ -57,7 +60,7 @@ const Home = () => {
                     )}
             </div>
 
-            <div className='flex-1 pb-2 h-screen overflow-y-scroll' ref={scrollRef}>
+            <div className='flex-1 pb-2 h-screen' ref={scrollRef}>
                 <Routes>
                     <Route path='/user-profile/:userId' element={<UserProfile />} />
                     <Route path='/*' element={<Pins user={user && user} />} />
