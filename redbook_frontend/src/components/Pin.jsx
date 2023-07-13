@@ -24,7 +24,6 @@ const Pin = ({ pin }) => {
     // if the user has alre
     alreadySaved = alreadySaved?.length > 0 ? alreadySaved : [];
 
-    console.log(alreadySaved);
 
     const savePin = (id) => {
         if (alreadySaved?.length === 0) {

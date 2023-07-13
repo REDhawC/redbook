@@ -12,7 +12,6 @@ const Login = () => {
 
     const responseGoogle = (res) => {
         const decoded = jwt_decode(res.credential)
-        console.log(decoded)
         const { name, sub, picture } = decoded
         const user = {
             _id: sub,

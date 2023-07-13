@@ -87,7 +87,7 @@ const PinDetail = ({ user }) => {
                                 <MdDownloadForOffline className='bg-white m-2 w-10 h-10 p-2 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 shadow-md hover:shadow-lg outline-none hover:p-1 transition-all' />
                             </a>
                         </div>
-                        <div className='rounded-full bg-white shadow-lg h-10 p-2'>
+                        <div className='rounded-full bg-white shadow-lg p-2 text-xs'>
                             <a href={pinDetail?.destination} target='_blank' rel='noreferrer'>
                                 {pinDetail?.destination}
                             </a>

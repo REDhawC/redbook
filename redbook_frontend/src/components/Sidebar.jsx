@@ -6,8 +6,8 @@ import { categories } from '../utils/data'
 
 import logo from '../assets/logo.png'
 
-const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
-const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-4 boarder-black transition-all duration-200 ease-in-out capitalize'
+const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black hover:text-lg hover:text-red-600 transition-all duration-500 ease-in-out capitalize'
+const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold p-1 text-white bg-red-600 border-red-600 transition-all duration-1000 ease-in-out capitalize'
 
 const sidebar = ({ user }, closeToggle) => {
 
@@ -31,7 +31,7 @@ const sidebar = ({ user }, closeToggle) => {
                         onClick={handleCloseSidebar}
                     >
                         <RiHomeFill />
-                        Home
+                        <span className='text-lg'>Home</span> 
                     </NavLink>
                     <h3 className='mt-2 px-5 text-base 2xl:text-xl'>Discover categories</h3>
                     {categories.slice(0, categories.length - 1).map((category) =>
@@ -55,7 +55,7 @@ const sidebar = ({ user }, closeToggle) => {
                         onClick={handleCloseSidebar}
                     >
                         <img src={user.image} className='w-10 h-10 rounded-full ' alt="user-profile" />
-                        <p>{user.userName}</p>
+                        <p className='font-bold'>{user.userName}</p>
                     </Link>
                 )}
             </div>

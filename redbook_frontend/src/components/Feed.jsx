@@ -16,7 +16,6 @@ const Feed = () => {
     useEffect(() => {
         setLoading(true)
         if (categoryId) {
-            console.log(categoryId);
             const query = searchQuery(categoryId)
 
             client.fetch(query)
